@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
 
 const baseUrl =
     "http://localhost:3003";
@@ -66,7 +67,8 @@ function RegisterHarvest() {
     };
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
              <button onClick={goToListMillsPage}>Voltar</button>
              <button onClick={goToListHarvestsPage}>Ver Safras Cadastradas</button>
             <h3>Registro - Safra</h3>

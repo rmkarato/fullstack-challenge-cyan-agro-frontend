@@ -3,14 +3,22 @@
     flex-direction: column;
 }
 
+.page-header .img {
+    width: 150px;
+    position: absolute;
+    top: 1.6rem;
+    left: 3.2rem;
+}
+
 .page-header .top-bar-container {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: green;
-    padding: 1.6rem 0;
+    padding: 3.2rem 0;
+    margin-left: 100%;
 }
 
 .page-header .top-bar-container a {
@@ -20,6 +28,44 @@
 
 .page-header .top-bar-container a:hover {
     opacity: 0.6;
+}
+
+.page-header a {
+    text-align: center;
+    padding: 0 25px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.page-header a:hover {
+    background-color: #ddd;
+    color: black;
+
+}
+
+.page-header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+a:link{
+    text-decoration:none;
+    color:black;
+}
+
+a:visited{
+    text-decoration:none;
+    color:black;
+}
+
+a:hover{
+    text-decoration:none;
+    color:black;
+}
+
+a:active{
+    text-decoration:none;
+    color:black;
 }
 
 @media (min-width: 700px) {

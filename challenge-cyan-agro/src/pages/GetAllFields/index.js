@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
 
 const baseUrl =
     "http://localhost:3003";
@@ -45,7 +46,8 @@ function GetAllFields() {
     }
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
             <button onClick={goToRegisterFieldsPage}>Voltar</button>
             <button onClick={goToHomePage}>Home</button>
             <h3>Lista de Talhões Cadastrados</h3>

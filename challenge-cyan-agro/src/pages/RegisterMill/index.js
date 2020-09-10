@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
 
 const baseUrl =
     "http://localhost:3003";
@@ -60,7 +61,8 @@ function RegisterMill() {
     }
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
             <button onClick={goToListMillsPage}>Ver Usinas Cadastradas</button>
             <button onClick={goToHomePage}>Home</button>
             <h3>Registro - Usina</h3>

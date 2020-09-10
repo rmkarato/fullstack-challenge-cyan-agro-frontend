@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
 
 const baseUrl =
     "http://localhost:3003";
@@ -60,7 +61,8 @@ function RegisterField() {
     }
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
             <button onClick={goToListFarmsPage}>Voltar</button>
             <button onClick={goToListFieldsPage}>Ver Talhões Cadastrados</button>
             <h3>Registro - Talhão</h3>

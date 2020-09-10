@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+import PageHeader from "../../components/PageHeader";
+
 const baseUrl =
     "http://localhost:3003";
 
@@ -44,7 +46,8 @@ function Login() {
     };
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
             <h3>Entrar</h3>
             <div>
 

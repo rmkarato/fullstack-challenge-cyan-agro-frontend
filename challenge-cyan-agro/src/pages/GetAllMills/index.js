@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
 
 const baseUrl =
     "http://localhost:3003";
@@ -45,7 +46,8 @@ function GetAllMills() {
     };
 
     return (
-        <div>
+        <div id="page-container" className="container">
+            <PageHeader title="Header Page" />
             <button onClick={goToRegisterMillPage}>Voltar</button>
             <h3> Lista de Usinas Cadastradas </h3>
             <p>Página para ver todas as usinas cadastradas</p>
