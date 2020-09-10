@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -67,37 +69,43 @@ function RegisterHarvest() {
 
     return (
         <div>
-             <button onClick={goToListMillsPage}>Voltar</button>
-             <button onClick={goToListHarvestsPage}>Ver Safras Cadastradas</button>
-            <h3>Registro - Safra</h3>
-            <div>
+            <PageHeader title="Header Page" />
 
+            <MainContainer>
+                <ButtonView onClick={goToListMillsPage}>Voltar</ButtonView>
+                <ButtonView onClick={goToListHarvestsPage}>Ver Safras Cadastradas</ButtonView>
+                <Title>Registro - Safra</Title>
                 <div>
-                    <label htmlFor="startDate">Data de Ínicio:</label>
-                    <input 
-                        required
-                        type="text"
-                        placeholder="YYYY-MM-DD"
-                        name="startDate"
-                        value={startDate}
-                        onChange={handleUpdateStartDate}
-                    />
-                </div>
 
-                <div>
-                    <label htmlFor="endDate">Data Final:</label>
-                    <input 
-                        required
-                        type="text"
-                        placeholder="YYYY-MM-DD"
-                        name="endDate"
-                        value={endDate}
-                        onChange={handleUpdateEndDate}
-                    />
-                </div>
+                    <div>
+                        <Label htmlFor="startDate">Data de Ínicio:</Label>
+                        <Input 
+                            required
+                            type="text"
+                            placeholder="YYYY-MM-DD"
+                            name="startDate"
+                            value={startDate}
+                            onChange={handleUpdateStartDate}
+                        />
+                    </div>
 
-            </div>
-            <button onClick={buttonRegister}>Cadastrar</button>
+                    <div>
+                        <Label htmlFor="endDate">Data Final:</Label>
+                        <Input 
+                            required
+                            type="text"
+                            placeholder="YYYY-MM-DD"
+                            name="endDate"
+                            value={endDate}
+                            onChange={handleUpdateEndDate}
+                        />
+                    </div>
+                    
+                    <ButtonBox>
+                        <ButtonRegister onClick={buttonRegister}>Cadastrar</ButtonRegister>
+                    </ButtonBox>
+                </div>
+            </MainContainer>
         </div>
     )
 };

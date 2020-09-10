@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonSignup } from "./styled";
+import { InputAdornment, IconButton } from "@material-ui/core";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+
 const baseUrl =
     "http://localhost:3003";
 
@@ -10,6 +16,10 @@ function Login() {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
     const handleUpdateEmail = (event) => {
         setEmail(event.target.value);
@@ -45,36 +55,57 @@ function Login() {
 
     return (
         <div>
-            <h3>Entrar</h3>
-            <div>
+            <PageHeader title="Header Page" />
 
+            <MainContainer>
                 <div>
-                    <label htmlFor="email">E-mail</label>
-                    <input                 
-                        required
-                        type="email"
-                        placeholder="Insira seu e-mail"
-                        name="email"
-                        value={email}
-                        onChange={handleUpdateEmail}
-                    />
-                </div>
+                    <Title>Entrar</Title>
 
-                <div>
-                    <label htmlFor="password">Senha</label>
-                    <input
-                        required
-                        placeholder="email@email.com"
-                        name="password"
-                        value={password}
-                        onChange={handleUpdatePassword}
-                    />
-                </div>
+                    <div>
+                        <Label htmlFor="email">E-mail</Label>
+                        <Input                 
+                            required
+                            type="email"
+                            placeholder="Insira seu e-mail"
+                            name="email"
+                            value={email}
+                            onChange={handleUpdateEmail}
+                        />
+                    </div>
 
-                <button onClick={handleLogin}>Entrar</button>
-                <button onClick={goToSignUpPage}>Cadastrar-se</button>
+                    <div>
+                        <Label htmlFor="password">Senha</Label>
+                        <Input
+                            required
+                            placeholder="email@email.com"
+                            name="password"
+                            type={showPassword ? "text" : "password"}
+                            variant="outlined"
+                            color="secondary"
+                            value={password}
+                            onChange={handleUpdatePassword}
+                            InputProps={{
+                                endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    >
+                                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </div>
 
-            </div>
+                    <ButtonBox>
+                        <ButtonSignup onClick={goToSignUpPage}>Não possui uma conta? Cadastrar-se.</ButtonSignup>
+                        <ButtonRegister onClick={handleLogin}>Entrar</ButtonRegister>
+                    </ButtonBox>
+                    </div>
+            </MainContainer>
         </div>
     )
 }

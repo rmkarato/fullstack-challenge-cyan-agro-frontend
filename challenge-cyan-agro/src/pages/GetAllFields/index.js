@@ -3,6 +3,9 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Subtitle, Ul, Grid, Card, TextCard, ButtonView } from "./styled";
+
 
 const baseUrl =
     "http://localhost:3003";
@@ -40,30 +43,31 @@ function GetAllFields() {
         history.push(`/fields/${farm_id}/register`)
     }
 
-    const goToHomePage = () => {
-        history.push("/")
-    }
-
     return (
         <div>
-            <button onClick={goToRegisterFieldsPage}>Voltar</button>
-            <button onClick={goToHomePage}>Home</button>
-            <h3>Lista de Talhões Cadastrados</h3>
-            <p>Página para ver todos os talhões cadastrados</p>
-            <div>
-                <ul>
-                    {fields.length === 0 && <div>Carregando...</div>}
-                    {fields && fields.map(field => {
-                        return (
-                            <li key={field.id}>
-                                <p>Id: {field.id}</p>
-                                <p>Id da Fazenda: {field.farm_id}</p>
-                                <p>Coordenadas: {fields.gps_coordinates}</p>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <PageHeader title="Header Page" />
+
+            <MainContainer>
+                <ButtonView onClick={goToRegisterFieldsPage}>Voltar</ButtonView>
+                <Title>Lista de Talhões Cadastrados</Title>
+                <Subtitle>Página para ver todos os talhões cadastrados</Subtitle>
+                <div>
+                    <Ul>
+                        {fields.length === 0 && <div>Carregando...</div>}
+                        <Grid>
+                            {fields && fields.map(field => {
+                                return (
+                                    <Card key={field.id}>
+                                        <TextCard><b>Id:</b> {field.id}</TextCard>
+                                        <TextCard><b>Id da Fazenda:</b> {field.farm_id}</TextCard>
+                                        <TextCard><b>Coordenadas:</b> {fields.gps_coordinates}</TextCard>
+                                    </Card>
+                                )
+                            })}
+                        </Grid>
+                    </Ul>
+                </div>
+            </MainContainer>
         </div>
     )
 };

@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Subtitle, Ul, Grid, Card, TextCard, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -10,7 +12,7 @@ const baseUrl =
 function GetAllHarvests() {
     useProtectedPage();
 
-    let history = useHistory();
+    let history = useHistory(); 
 
     const [ harvests, setHarvests ] = useState([]);
 
@@ -46,26 +48,34 @@ function GetAllHarvests() {
     
     return (
         <div>
-            <button onClick={goToRegisterHarvestPage}>Voltar</button>
-            <h3>Lista de Safras Cadastradas</h3>
-            <p>Página para ver todas as safras cadastradas</p>
+            <PageHeader title="Header Page" />
 
-            <div>
-                <ul>
-                    {harvests.length === 0 && <div>Carregando...</div>}
-                    {harvests && harvests.map(harvest => {
-                        return (
-                            <li key={harvest.id}>
-                                <p>Id: {harvest.id} </p>
-                                <p>Id da Usina: {harvest.mill_id} </p>
-                                <p>Início da colheita: {harvest.start_date} </p>
-                                <p>Fim da colheita: {harvest.end_date} </p>
-                                <button onClick={() => goToRegisterFarmPage(harvest.id)}>Cadastrar Fazenda</button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <MainContainer>
+                <ButtonView onClick={goToRegisterHarvestPage}>Voltar</ButtonView>
+                <Title>Lista de Safras Cadastradas</Title>
+                <Subtitle>Página para ver todas as safras cadastradas</Subtitle>
+
+                <div>
+                    <Ul>
+                        {harvests.length === 0 && <div>Carregando...</div>}
+                        <Grid>
+                            {harvests && harvests.map(harvest => {
+                                return (
+                                    <Card key={harvest.id}>
+                                        <TextCard><b>Id:</b> {harvest.id} </TextCard>
+                                        <TextCard><b>Id da Usina:</b> {harvest.mill_id} </TextCard>
+                                        <TextCard><b>Início da colheita:</b> {harvest.start_date} </TextCard>
+                                        <TextCard><b>Fim da colheita:</b> {harvest.end_date} </TextCard>
+                                        <ButtonBox>
+                                            <ButtonRegister onClick={() => goToRegisterFarmPage(harvest.id)}>Cadastrar Fazenda</ButtonRegister>
+                                        </ButtonBox>
+                                    </Card>
+                                )
+                            })}
+                        </Grid>
+                    </Ul>
+                </div>
+            </MainContainer>
         </div>
     )
 };

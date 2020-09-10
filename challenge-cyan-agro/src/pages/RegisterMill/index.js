@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -55,31 +57,32 @@ function RegisterMill() {
         history.push("/mills/all")
     };
 
-    const goToHomePage = () => {
-        history.push("/")
-    }
-
     return (
         <div>
-            <button onClick={goToListMillsPage}>Ver Usinas Cadastradas</button>
-            <button onClick={goToHomePage}>Home</button>
-            <h3>Registro - Usina</h3>
-            <div>
+            <PageHeader title="Header Page" />
 
+            <MainContainer>
+                <ButtonView onClick={goToListMillsPage}>Ver Usinas Cadastradas</ButtonView>
+                <Title>Registro - Usina</Title>
                 <div>
-                    <label htmlFor="name">Nome*</label>
-                    <input
-                        required
-                        type="text"
-                        placeholder="Insira o nome da usina"
-                        name="name"
-                        value={name}
-                        onChange={handleUpdateName}
-                    />
-                </div>
 
-            </div>
-            <button onClick={buttonRegister}>Cadastrar</button>
+                    <div>
+                        <Label htmlFor="name">Nome*</Label>
+                        <Input
+                            required
+                            type="text"
+                            placeholder="Insira o nome da usina"
+                            name="name"
+                            value={name}
+                            onChange={handleUpdateName}
+                        />
+                    </div>
+
+                    <ButtonBox>
+                        <ButtonRegister onClick={buttonRegister}>Cadastrar</ButtonRegister>
+                    </ButtonBox>
+                </div>
+            </MainContainer>
         </div>
     )
 };

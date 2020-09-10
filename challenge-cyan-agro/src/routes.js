@@ -13,6 +13,8 @@ import RegisterFarm from "./pages/RegisterFarm";
 import GetAllFarms from "./pages/GetAllFarms";
 import RegisterField from "./pages/RegisterFields";
 import GetAllFields from "./pages/GetAllFields";
+import PageAbout from "./pages/PageAbout";
+import PageContact from "./pages/PageContact"; 
 
 const Router = () => {
     return (
@@ -84,6 +86,19 @@ const Router = () => {
                         <GetAllFields />
                     </DocumentTitle>
                 </Route>
+
+                <Route exact path="/cyan/about">
+                    <DocumentTitle title="Cyan Agro - Sobre">
+                        <PageAbout />
+                    </DocumentTitle>
+                </Route>
+
+                <Route exact path="/cyan/contact">
+                    <DocumentTitle title="Cyan Agro - Contato">
+                        <PageContact />
+                    </DocumentTitle>
+                </Route>
+
 
             </Switch>
         </BrowserRouter>

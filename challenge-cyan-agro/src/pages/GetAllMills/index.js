@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Subtitle, Ul, Grid, Card, TextCard, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -46,25 +48,33 @@ function GetAllMills() {
 
     return (
         <div>
-            <button onClick={goToRegisterMillPage}>Voltar</button>
-            <h3> Lista de Usinas Cadastradas </h3>
-            <p>Página para ver todas as usinas cadastradas</p>
+            <PageHeader title="Header Page" />
 
-            <div>
-                <ul>
-                    {mills.length === 0 && <div>Carregando...</div>}
-                    {mills && mills.map(mill => {
-                        return (
-                            <li key={mill.name}>
-                                <p>Id: {mill.id} </p>
-                                <p>Nome da Usina: {mill.name} </p>
-                                <p>Data de Criação: {mill.createdAt}</p>
-                                <button onClick={() => goToRegisterHarvestPage(mill.id)}>Cadastrar Safra</button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <MainContainer>
+                <ButtonView onClick={goToRegisterMillPage}>Voltar</ButtonView>
+                <Title> Lista de Usinas Cadastradas </Title>
+                <Subtitle>Página para ver todas as usinas cadastradas</Subtitle>
+
+                <div>
+                    <Ul>
+                        {mills.length === 0 && <div>Carregando...</div>}
+                        <Grid>
+                            {mills && mills.map(mill => {
+                                return (
+                                    <Card key={mill.name}>
+                                        <TextCard><b>Id:</b> {mill.id} </TextCard>
+                                        <TextCard><b>Nome da Usina:</b> {mill.name} </TextCard>
+                                        <TextCard><b>Data de Criação:</b> {mill.createdAt}</TextCard>
+                                        <ButtonBox>
+                                            <ButtonRegister onClick={() => goToRegisterHarvestPage(mill.id)}>Cadastrar Nova Safra</ButtonRegister>
+                                        </ButtonBox>                                
+                                    </Card>
+                                )
+                            })}
+                        </Grid>
+                    </Ul>
+                </div>
+            </MainContainer>
         </div>
     );
 };
