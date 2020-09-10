@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
 import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -61,27 +62,33 @@ function RegisterField() {
     }
 
     return (
-        <div id="page-container" className="container">
+        <div>
             <PageHeader title="Header Page" />
-            <button onClick={goToListFarmsPage}>Voltar</button>
-            <button onClick={goToListFieldsPage}>Ver Talhões Cadastrados</button>
-            <h3>Registro - Talhão</h3>
-            <div>
 
+            <MainContainer>
+                <ButtonView onClick={goToListFarmsPage}>Voltar</ButtonView>
+                <ButtonView onClick={goToListFieldsPage}>Ver Talhões Cadastrados</ButtonView>
+                <Title>Registro - Talhão</Title>
                 <div>
-                    <label htmlFor="gpsCoordinates">Coordenadas GPS*</label>
-                    <input
-                        required
-                        type="text"
-                        placeholder="Insira as coordenadas"
-                        name="gpsCoordinates"
-                        value={gpsCoordinates}
-                        onChange={handleUpdateGpsCoordinates}
-                    />
-                </div>
 
-            </div>
-            <button onClick={buttonRegister}>Cadastrar</button>
+                    <div>
+                        <Label htmlFor="gpsCoordinates">Coordenadas GPS*</Label>
+                        <Input
+                            required
+                            type="text"
+                            placeholder="Insira as coordenadas"
+                            name="gpsCoordinates"
+                            value={gpsCoordinates}
+                            onChange={handleUpdateGpsCoordinates}
+                        />
+                    </div>
+
+            
+                    <ButtonBox>
+                        <ButtonRegister onClick={buttonRegister}>Cadastrar</ButtonRegister>
+                    </ButtonBox>
+                </div>
+            </MainContainer>
         </div>
     )
 };

@@ -13,7 +13,7 @@ const PageHeader = () => {
 
             <div class="top-bar-container">
 
-                <Link to="/" class="active">
+                <Link to="/">
                     Home
                 </Link>
 

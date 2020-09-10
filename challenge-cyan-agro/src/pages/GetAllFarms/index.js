@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
 import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Subtitle, Ul, Grid, Card, TextCard, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -46,27 +47,34 @@ function GetAllFarms() {
     }
 
     return (
-        <div id="page-container" className="container">
+        <div>
             <PageHeader title="Header Page" />
-            <button onClick={goToRegisterFarmPage}>Voltar</button>
-            <h3>Lista de Fazendas Cadastradas</h3>
-            <p>Página para ver todas as fazendas cadastradas</p>
 
-            <div>
-                <ul>
-                    {farms.length === 0 && <div>Carregando...</div>}
-                    {farms && farms.map(farm => {
-                        return (
-                            <li key={farm.id}>
-                                <p>Id: {farm.id} </p>
-                                <p>Nome da Fazenda: {farm.name} </p>
-                                <p>Data de Criação: {farm.createdAt}</p>
-                                <button onClick={() => goToRegisterFieldsPage(farm.id)}>Cadastrar Talhão</button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <MainContainer>
+                <ButtonView onClick={goToRegisterFarmPage}>Voltar</ButtonView>
+                <Title>Lista de Fazendas Cadastradas</Title>
+                <Subtitle>Página para ver todas as fazendas cadastradas</Subtitle>
+
+                <div>
+                    <Ul>
+                        {farms.length === 0 && <div>Carregando...</div>}
+                        <Grid>
+                            {farms && farms.map(farm => {
+                                return (
+                                    <Card key={farm.id}>
+                                        <TextCard><b>Id:</b> {farm.id} </TextCard>
+                                        <TextCard><b>Nome da Fazenda:</b> {farm.name} </TextCard>
+                                        <TextCard><b>Data de Criação:</b> {farm.createdAt}</TextCard>
+                                        <ButtonBox>
+                                            <ButtonRegister onClick={() => goToRegisterFieldsPage(farm.id)}>Cadastrar Talhão</ButtonRegister>
+                                        </ButtonBox>
+                                    </Card>
+                                )
+                            })}
+                        </Grid>
+                    </Ul>
+                </div>
+            </MainContainer>
         </div>
     )
 };

@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import useProtectedPage from "../../hooks/useProtectedPage";
 import PageHeader from "../../components/PageHeader";
+import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
     "http://localhost:3003";
@@ -61,27 +62,32 @@ function RegisterFarm() {
     };
 
     return (
-        <div id="page-container" className="container">
+        <div>
             <PageHeader title="Header Page" />
-             <button onClick={goToListHarvestsPage}>Voltar</button>
-             <button onClick={goToListFarmsPage}>Ver Fazendas Cadastradas</button>
-            <h3>Registro - Fazenda</h3>
-            <div>
 
+            <MainContainer>
+                <ButtonView onClick={goToListHarvestsPage}>Voltar</ButtonView>
+                <ButtonView onClick={goToListFarmsPage}>Ver Fazendas Cadastradas</ButtonView>
+                <Title>Registro - Fazenda</Title>
                 <div>
-                    <label htmlFor="name">Nome*</label>
-                    <input
-                        required
-                        type="text"
-                        placeholder="Insira o nome da fazenda"
-                        name="name"
-                        value={name}
-                        onChange={handleUpdateName}
-                    />
-                </div>
 
-            </div>
-            <button onClick={buttonRegister}>Cadastrar</button>
+                    <div>
+                        <Label htmlFor="name">Nome*</Label>
+                        <Input
+                            required
+                            type="text"
+                            placeholder="Insira o nome da fazenda"
+                            name="name"
+                            value={name}
+                            onChange={handleUpdateName}
+                        />
+                    </div>
+
+                    <ButtonBox>
+                        <ButtonRegister onClick={buttonRegister}>Cadastrar</ButtonRegister>
+                    </ButtonBox>
+                </div>
+            </MainContainer>
         </div>
     )
 };

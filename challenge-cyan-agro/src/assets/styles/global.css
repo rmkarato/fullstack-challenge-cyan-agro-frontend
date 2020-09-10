@@ -14,28 +14,17 @@ html, body, #root {
 }
 
 body {
-    background: grey;
+    background: #CFE0C3;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
-}
-
-#root {
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 body,
 input,
 button,
 textarea {
-    font: 500 1.6rem Poppins;
-    color: black;
-}
-
-.container {
-    width: 90vw;
-    max-width: 700px;
+    font: 500 1.6rem Noto Sans JP;
+    color: #1F363D;
 }
 
 @media (min-width: 700px) {
