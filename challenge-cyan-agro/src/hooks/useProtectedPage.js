@@ -8,7 +8,7 @@ const useProtectedPage = (props) => {
         const token = window.localStorage.getItem("token")
 
         if(token === null) {
-            history.push("/login")
+            history.push("/user/login")
         }
     }, [history])
 }

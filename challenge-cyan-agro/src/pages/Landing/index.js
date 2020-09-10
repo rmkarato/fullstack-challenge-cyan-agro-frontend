@@ -3,8 +3,8 @@ import PageHeader from "../../components/PageHeader";
 
 function Landing() {
     return (
-        <div>
-            <PageHeader title="Teste" />
+        <div id="page-container" className="container">
+            <PageHeader title="Landing Page" />
         </div>
     )
 }

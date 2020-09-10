@@ -31,11 +31,11 @@ function Login() {
             const response = await axios.post(`${baseUrl}/user/login`, body);
             console.log(response);
             window.localStorage.setItem("token", response.data.token);
-            alert("Usuário logado.")
+            alert("Usuário logado.");
             history.push("/");
         } catch (e) {
             alert("Falha no login");
-            console.log(e)
+            console.log(e);
         }
     };
 
