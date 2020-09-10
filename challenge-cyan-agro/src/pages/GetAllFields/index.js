@@ -60,7 +60,7 @@ function GetAllFields() {
                                     <Card key={field.id}>
                                         <TextCard><b>Id:</b> {field.id}</TextCard>
                                         <TextCard><b>Id da Fazenda:</b> {field.farm_id}</TextCard>
-                                        <TextCard><b>Coordenadas:</b> {fields.gps_coordinates}</TextCard>
+                                        <TextCard><b>Coordenadas:</b> {field.gpsCoordinates}</TextCard>
                                     </Card>
                                 )
                             })}

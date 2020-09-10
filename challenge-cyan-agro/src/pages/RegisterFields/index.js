@@ -15,7 +15,7 @@ function RegisterField() {
 
     let history = useHistory();
 
-    const [gpsCoordinates, setGpsCoordinates] = useState("");
+    const [gpsCoordinates, setGpsCoordinates] = useState();
     const [newToken, setNewToken] = useState(null);
 
     useEffect(() => {
@@ -39,13 +39,13 @@ function RegisterField() {
         };
 
         const body = {
-            gps_coordinates: gpsCoordinates
+            gpsCoordinates: gpsCoordinates
         }
 
         try {
             const response = await axios.post(`${baseUrl}/fields/${farm_id}/register`, body, axiosConfig);
             console.log(response.data)
-            alert("Talhão cadastradao com sucesso!");
+            alert("Talhão cadastrado com sucesso!");
             history.push("/fields/all");
         } catch(e) {
             alert("Falha ao cadastrar talhão.");
