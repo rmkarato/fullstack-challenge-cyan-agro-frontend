@@ -45,7 +45,7 @@ function RegisterFarm() {
         try {
             const response = await axios.post(`${baseUrl}/farms/${harvest_id}/register`, body, axiosConfig);
             console.log(response.data)
-            alert("Safra cadastrada com sucesso!");
+            alert("Fazenda cadastrada com sucesso!");
             history.push("/farms/all");
         } catch(e) {
             alert("Falha ao cadastrar fazenda.");

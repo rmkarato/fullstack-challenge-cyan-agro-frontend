@@ -62,8 +62,14 @@ export const ButtonRegister = styled.button`
     color: white;
 `;
 
+export const Footer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const Name = styled.p`
-    text-align: center;
-    padding: 13px;
+    position: absolute;
     font-size: 1.4rem;
+    bottom: 10px;
 `;
