@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import PageHeader from "../../components/PageHeader";
-import { MainContainer, Title, Subtitle, ButtonBox, ButtonRegister, Name } from "./styled";
+import { MainContainer, Title, Subtitle, ButtonBox, ButtonRegister, Footer, Name } from "./styled";
 
 function Landing() {
     let history = useHistory();
@@ -29,7 +29,9 @@ function Landing() {
                 </ButtonBox>
                 
             </MainContainer>
-            <Name>Por Renata Mitsue Karato | 11 99763-7438 | rmkarato@gmail.com</Name>
+            <Footer>
+                <Name>Por Renata Mitsue Karato | 11 99763-7438 | rmkarato@gmail.com</Name>
+            </Footer>
         </div>
     )
 }
