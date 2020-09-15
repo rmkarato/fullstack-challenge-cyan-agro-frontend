@@ -7,7 +7,7 @@ import PageHeader from "../../components/PageHeader";
 import { MainContainer, Title, Subtitle, Ul, Grid, Card, TextCard, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
-    "http://localhost:3003";
+    "http://ec2-54-159-25-92.compute-1.amazonaws.com";
 
     
 function GetAllFarms() {

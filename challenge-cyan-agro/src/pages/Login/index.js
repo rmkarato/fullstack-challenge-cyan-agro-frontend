@@ -9,7 +9,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const baseUrl =
-    "http://localhost:3003";
+    "http://ec2-54-159-25-92.compute-1.amazonaws.com";
 
 function Login() {
     let history = useHistory();
@@ -41,7 +41,6 @@ function Login() {
             const response = await axios.post(`${baseUrl}/user/login`, body);
             console.log(response);
             window.localStorage.setItem("token", response.data.token);
-            alert("Usuário logado.");
             history.push("/");
         } catch (e) {
             alert("Falha no login");

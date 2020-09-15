@@ -7,7 +7,7 @@ import PageHeader from "../../components/PageHeader";
 import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
-    "http://localhost:3003";
+    "http://ec2-54-159-25-92.compute-1.amazonaws.com";
 
 function RegisterField() {
     useProtectedPage();
@@ -16,6 +16,7 @@ function RegisterField() {
     let history = useHistory();
 
     const [gpsCoordinates, setGpsCoordinates] = useState();
+    // eslint-disable-next-line
     const [newToken, setNewToken] = useState(null);
 
     useEffect(() => {

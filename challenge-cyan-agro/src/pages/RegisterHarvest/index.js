@@ -7,7 +7,7 @@ import PageHeader from "../../components/PageHeader";
 import { MainContainer, Title, Label, Input, ButtonBox, ButtonRegister, ButtonView } from "./styled";
 
 const baseUrl =
-    "http://localhost:3003";
+    "http://ec2-54-159-25-92.compute-1.amazonaws.com";
 
 function RegisterHarvest() {
     useProtectedPage();
@@ -17,6 +17,7 @@ function RegisterHarvest() {
 
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    // eslint-disable-next-line
     const [newToken, setNewToken] = useState(null);
 
     useEffect(() => {
