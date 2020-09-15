@@ -20,9 +20,13 @@
 
 ## Instruções Para Rodar
 
- <p align="justify"> 1. npm install para instalar todas as dependências; </p>
+<p align="justify"> 1. npm install para instalar todas as dependências; </p>
 <p align="justify"> 2. npm run start para rodar localmente o projeto;</p>
 <p align="justify"> 3. npm run build para gerar uma versão estática do projeto (que ficará na pasta "build").</p>
+
+## Deploy
+
+<p align="justify"> http://cyan-agro-challenge.s3-website-us-east-1.amazonaws.com/ </p>
 
 ## Documentação da API utilizada 
 
