@@ -9,7 +9,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const baseUrl =
-    "http://localhost:3003";
+    "http://ec2-54-159-25-92.compute-1.amazonaws.com";
 
 function Signup() {
     let history = useHistory();
